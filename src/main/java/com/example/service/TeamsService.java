@@ -9,6 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.domain.Teams;
 import com.example.repository.TeamsRepository;
 
+/**
+ * 野球チーム情報についての各処理を実施
+ * 
+ * @author ishida fuya
+ */
 @Service
 @Transactional
 public class TeamsService {

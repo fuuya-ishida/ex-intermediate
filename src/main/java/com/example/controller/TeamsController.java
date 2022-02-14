@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.service.TeamsService;
 
+/**
+ * 野球チーム情報を操作するコントローラー
+ * 
+ * @author ishida fuya
+ *
+ */
 @Controller
 @RequestMapping("/Ex01")
 public class TeamsController {
