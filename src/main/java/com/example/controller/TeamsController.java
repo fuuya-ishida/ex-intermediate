@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.service.TeamsService;
 
 @Controller
-@RequestMapping("Ex01")
+@RequestMapping("/Ex01")
 public class TeamsController {
 	
 	@Autowired

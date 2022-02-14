@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>野球チーム詳細情報</title>
-</head>
-<body>
-<form method="post" action="list.html">
-						<fieldset>
-							<legend>野球チーム情報</legend>
-							<table class="table table-striped" style="text-align: left;">
-							  <tr>
-							    <th nowrap>
-							      球団名
-							    </th>
-							  </tr>
-							    <td>
-							     <span th:text="${teamDetail.teamName}" >dummy</span>
-							    </td>
-							  
-							  <tr>
-							  	<th nowrap>
-							      本拠地<br>
-							    </th>
-							  </tr>
-							    <td>
-							     <span th:text="${teamDetail.headquarters}" >dummy</span>
-							    </td>
-							  
-							  <tr>
-							  	<th nowrap>
-							  	  発足<br>
-							    </th>
-							     </tr>
-							    <td>
-							     <span th:text="${teamDetail.inauguration}" >dummy</span>
-							    </td>
-							 
-							  <tr>
-							  	<th nowrap>
-							      歴史<br>
-							    </th>
-							     </tr>
-							    <td>
-							     <span th:text="${teamDetail.history}" >dummy</span>
-							    </td>
-							 
-			
 
-					
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>野球チーム詳細情報</title>
+</head>
+
+<body>
+	<form method="post" action="list.html" th:action="@{/Ex01/teamList}">
+		<table class="table table-striped" style="text-align: left;">
+			<tr>
+				<th>
+					球団名
+				</th>
+			</tr>
+			<td>
+				<span th:text="${teamDetail.teamName}">dummy</span>
+			</td>
+
+			<tr>
+				<th>
+					本拠地<br>
+				</th>
+			</tr>
+			<td>
+				<span th:text="${teamDetail.headquarters}">dummy</span>
+			</td>
+
+			<tr>
+				<th>
+					発足<br>
+				</th>
+			</tr>
+			<td>
+				<span th:text="${teamDetail.inauguration}">dummy</span>
+			</td>
+
+			<tr>
+				<th>
+					歴史<br>
+				</th>
+			</tr>
+			<td>
+				<pre><span th:text="${teamDetail.history}">dummy</span></pre>
+			</td>
+
+		</table>
+		<button>戻る</button>
+
+	</form>
+
+
 </body>
+
 </html>
