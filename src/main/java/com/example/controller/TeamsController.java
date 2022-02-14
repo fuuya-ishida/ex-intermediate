@@ -12,13 +12,13 @@ import com.example.service.TeamsService;
 @Controller
 @RequestMapping("/Ex01")
 public class TeamsController {
-	
+
 	@Autowired
 	private TeamsService teamsService;
-	
+
 	@Autowired
 	private HttpSession session;
-	
+
 	/**
 	 * 野球チーム一覧の表示処理
 	 * 
@@ -27,16 +27,15 @@ public class TeamsController {
 	 */
 	@RequestMapping("/teamList")
 	public String showList() {
-		
-		System.out.println(teamsService.showList());
-		
-		session.setAttribute("teamsList",teamsService.showList());
-		
-		
+		// 一件も検索されなかった場合はnullを返す。
+		try {
+			session.setAttribute("teamsList", teamsService.showList());
+		} catch (Exception e) {
+			return null;
+		}
 		return "/teams/list";
 	}
-	
-	
+
 	/**
 	 * 野球チーム詳細情報の表示処理
 	 * 
@@ -44,12 +43,14 @@ public class TeamsController {
 	 *
 	 */
 	@RequestMapping("/showDetail")
-	public String showDetail(Integer id,Model model) {
-		
-		model.addAttribute("teamDetail",teamsService.showDetail(id));
-		
+	public String showDetail(Integer id, Model model) {
+		// 一件も検索されなかった場合はnullを返す。
+		try {
+			model.addAttribute("teamDetail", teamsService.showDetail(id));
+		} catch (Exception e) {
+			return null;
+		}
 		return "/teams/detail";
 	}
-	
 
 }
