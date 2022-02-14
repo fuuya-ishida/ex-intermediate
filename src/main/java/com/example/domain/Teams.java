@@ -24,7 +24,7 @@ public class Teams {
 	private String inauguration;
 	
 	/** 歴史 */
-	private String hitory;
+	private String history;
 	
 	public Integer getId() {
 		return id;
@@ -56,16 +56,16 @@ public class Teams {
 	public void setInauguration(String inauguration) {
 		this.inauguration = inauguration;
 	}
-	public String getHitory() {
-		return hitory;
+	public String getHistory() {
+		return history;
 	}
-	public void setHitory(String hitory) {
-		this.hitory = hitory;
+	public void setHistory(String history) {
+		this.history = history;
 	}
 	@Override
 	public String toString() {
 		return "Teams [id=" + id + ", leagueName=" + leagueName + ", teamName=" + teamName + ", headquarters="
-				+ headquarters + ", inauguration=" + inauguration + ", hitory=" + hitory + "]";
+				+ headquarters + ", inauguration=" + inauguration + ", history=" + history + "]";
 	}
 	
 
