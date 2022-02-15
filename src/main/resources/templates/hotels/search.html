@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ホテル検索</title>
+</head>
+
+<body>
+
+	<form method="post" action="/search.html" th:action="@{/Ex02/searchByLessThanPrice}">
+		<h1>ホテル検索</h1>
+		<input type="text" name="price">円以下<br>
+		<button type="submit">検索</button>
+
+		<table th:each="hotels:${hotelList}"  border=1 style="text-align: center" >
+		<tr>
+			<th>
+				ホテル名
+			</th>
+			
+				<td>
+					<span th:text="${hotels.hotelName}" >dummy</span>
+				</td>
+			</tr>
+			<tr>
+			<th>
+				最寄駅
+			</th>
+			
+				<td>
+					<span th:text="${hotels.nearestStation}" >dummy</span>
+				</td>
+			</tr>
+			<tr>
+			<th>
+				価格
+			</th>
+			
+				<td>
+					<span th:text="${hotels.price}" >dummy</span>
+				</td>
+			</tr>
+		</table>
+		</body>
+
+</html>
+	
