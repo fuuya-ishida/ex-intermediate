@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>衣類検索</title>
+</head>
+
+<body>
+
+	<form method="post" action="/search.html" th:action="@{/Ex03/searchByColorAndGender}">
+		<h1>衣類検索</h1>
+		<input type="radio" name="gender" value="man" checked>Man 
+		<select name="color" id="">
+			<option value="red">赤</option>
+			<option value="blue">青</option>
+			<option value="white">白</option>
+			<option value="yellow">黄</option>
+		</select><br>
+		<input type="radio" name="gender" value="woman">Woman<br> 
+
+		<button type="submit">検索</button>
+	</form>
+		
+		
+
+		<table th:each="hotels:${hotelList}"  border=1 style="text-align: center" >
+		<tr>
+			<th>
+				ホテル名
+			</th>
+			
+				<td>
+					<span th:text="${hotels.hotelName}" >dummy</span>
+				</td>
+			</tr>
+			<tr>
+			<th>
+				最寄駅
+			</th>
+			
+				<td>
+					<span th:text="${hotels.nearestStation}" >dummy</span>
+				</td>
+			</tr>
+			<tr>
+			<th>
+				価格
+			</th>
+			
+				<td>
+					<span th:text="${hotels.price}" >dummy</span>
+				</td>
+			</tr>
+		</table>
+		</body>
+
+</html>
+	
