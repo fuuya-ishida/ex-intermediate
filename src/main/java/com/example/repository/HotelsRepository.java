@@ -28,7 +28,6 @@ public class HotelsRepository {
 		hotels.setHotelName(rs.getString("hotel_name"));
 		hotels.setAddress(rs.getString("address"));
 		hotels.setNearestStation(rs.getString("nearest_station"));
-		;
 		hotels.setPrice(rs.getInt("price"));
 		hotels.setParking(rs.getString("parking"));
 		return hotels;
@@ -46,22 +45,25 @@ public class HotelsRepository {
 	 * @return ホテル情報一覧
 	 */
 	public List<Hotels> searchByLessThanPrice(Integer price) {
-		//金額入力欄が空白の場合は全件取得する
-		if (price == null) {
+			if(price == null) {
+				
+			
 			String sql = "SELECT id,area_name,hotel_name,address,nearest_station,price,parking FROM hotels "
 					+ " ORDER BY price";
 
 			List<Hotels> hotellist = template.query(sql, HOTELS_ROW_MAPPER);
 
 			return hotellist;
+			}
+			String sql = "SELECT id,area_name,hotel_name,address,nearest_station,price,parking FROM hotels "
+					+ "WHERE price <= :price ORDER BY price";
+			
+			SqlParameterSource param = new MapSqlParameterSource().addValue("price", price);
+
+			List<Hotels> hotellist = template.query(sql, param,HOTELS_ROW_MAPPER);
+			
+			return hotellist;
 		}
-		String sql = "SELECT id,area_name,hotel_name,address,nearest_station,price,parking FROM hotels "
-				+ "WHERE price <= :price";
-
-		SqlParameterSource param = new MapSqlParameterSource().addValue("price", price);
-
-		List<Hotels> hotellist = template.query(sql, HOTELS_ROW_MAPPER);
-		return hotellist;
-	}
+		
 
 }
